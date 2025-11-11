@@ -13,7 +13,7 @@ def calculateSine(degrees: list[float] , accuracy: int) -> list[int]:
         - `degrees` is a list of floating point numbers that you are supposed to calculate the SINE values for.
         - `accuracy` is the number of decimal places that you must ensure are correct with your calculation and actual value.
 
-    OUPTUT :
+    OUPTUT : 
         - return a list of length equal to `degrees` representing the minimum number of terms required in the power series
         to calculate at required accuracy.
 
@@ -24,6 +24,23 @@ def calculateSine(degrees: list[float] , accuracy: int) -> list[int]:
     """
   
     #TODO: write your solution here
+    results = []
+    for deg in degrees:
+        radian = math.radians(deg)
+        minTerms = 1
+        while True:
+            sine = 0.0
+            for k in range(minTerms):
+                p = 2 * k + 1
+                term = ((-1) ** k) * (radian ** p) / factorial(p)
+                sine += term
+            
+            if checkSineAccuracy(deg, sine, accuracy):
+                results.append(minTerms)
+                break 
+            
+            minTerms += 1
+    return results
 
 
 def calculateCos(degrees: list[float] , accuracy: int) -> list[int]:
