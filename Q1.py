@@ -13,7 +13,7 @@ def calculateSine(degrees: list[float] , accuracy: int) -> list[int]:
         - `degrees` is a list of floating point numbers that you are supposed to calculate the SINE values for.
         - `accuracy` is the number of decimal places that you must ensure are correct with your calculation and actual value.
 
-    OUPTUT :
+    OUPTUT : 
         - return a list of length equal to `degrees` representing the minimum number of terms required in the power series
         to calculate at required accuracy.
 
